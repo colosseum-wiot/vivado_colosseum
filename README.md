@@ -25,7 +25,7 @@ Depending on how the container was created, uhd might have been installed throug
 
 First, check if any package has been installed and remove it:
 ```
-apt purge $(apt list --installed | grep nano | cut -d '/' -f1)
+apt purge $(apt list --installed | grep uhd | cut -d '/' -f1)
 ```
 
 Then, if uhd was installed from source, run the following **dangerous** command:
