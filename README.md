@@ -18,3 +18,15 @@ uhd_images_downloader
 viv_jtag_program /usr/share/uhd/images/usrp_x310_fpga_HG.bit
 ```
 Test with `uhd_usrp_probe`
+
+## Purging UHD 
+It is highly recommended that UHD is purged before updating to a new version.
+Depending on how the container was created, uhd might have been installed through the package manager or by compiling it from source.
+
+First, check if any package has been installed and remove it:
+```
+apt purge $(apt list --installed | grep nano | cut -d '/' -f1)
+```
+
+Then, if uhd was installed from source, run the following ~dangerous~ command:
+`rm -rf $(find / | grep uhd)`
